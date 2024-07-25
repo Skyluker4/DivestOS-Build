@@ -21,35 +21,34 @@
 #START OF USER CONFIGURABLE OPTIONS
 #
 #General
-export DOS_WORKSPACE_ROOT="/mnt/dos/"; #XXX: THIS MUST BE CORRECT TO BUILD!
-#export DOS_BUILDS=$DOS_WORKSPACE_ROOT"Builds/";
-export DOS_BUILDS="/mnt/Storage-1/DivestOS/Builds/"; #XXX: THIS MUST BE CORRECT TO BUILD!
-export DOS_SIGNING_KEYS="$DOS_WORKSPACE_ROOT/Signing_Keys/4096pro";
-export DOS_SIGNING_GPG="$DOS_WORKSPACE_ROOT/Signing_Keys/gnupg";
-#export USE_CCACHE=1;
-#export CCACHE_DIR="";
+export DOS_WORKSPACE_ROOT="/mnt/DivestOS/DivestOS/"; #XXX: THIS MUST BE CORRECT TO BUILD!
+export DOS_BUILDS="${DOS_WORKSPACE_ROOT}/Builds/";
+export DOS_SIGNING_KEYS="${DOS_WORKSPACE_ROOT}/Signing_Keys/4096pro";
+export DOS_SIGNING_GPG="${DOS_WORKSPACE_ROOT}/Signing_Keys/gnupg";
+export USE_CCACHE=1;
+export CCACHE_DIR="${DOS_WORKSPACE_ROOT}/Untracked/ccache/";
 export CCACHE_COMPRESS=1;
-export CCACHE_COMPRESSLEVEL=1;
+export CCACHE_COMPRESSLEVEL=1
 #export DOS_BINARY_PATCHER="";
-export DOS_MALWARE_SCAN_ENABLED=false; #Set true to perform a fast scan on patchWorkspace() and a through scan on buildAll()
-export DOS_MALWARE_SCAN_SETTING="quick"; #buildAll() scan speed. Options: quick, extra, slow, full
+export DOS_MALWARE_SCAN_ENABLED=true; #Set true to perform a fast scan on patchWorkspace() and a through scan on buildAll()
+export DOS_MALWARE_SCAN_SETTING="full"; #buildAll() scan speed. Options: quick, extra, slow, full
 export DOS_REFRESH_PATCHES=true; #Set true to refresh branch-specific patches on apply
 
 #Deblobber
 export DOS_DEBLOBBER_REMOVE_ACCESSORIES=true; #Set false to allow use of external accessories that depend on blobs
 export DOS_DEBLOBBER_REMOVE_ATFWD=true; #Set true to remove basic ATFWD blobs
 export DOS_DEBLOBBER_REMOVE_AUDIOFX=true; #Set true to remove AudioFX
-export DOS_DEBLOBBER_REMOVE_APTX=false; #Set true to remove aptX Bluetooth codec
+export DOS_DEBLOBBER_REMOVE_APTX=true; #Set true to remove aptX Bluetooth codec
 export DOS_DEBLOBBER_REMOVE_CNE=true; #Set true to remove all CNE blobs #XXX: Breaks Wi-Fi calling
 export DOS_DEBLOBBER_REMOVE_DPM=true; #Set true to remove all DPM blobs #XXX: Maybe breaks multi-sim and carrier aggregation (LTE+)
 export DOS_DEBLOBBER_REMOVE_DPP=false; #Set true to remove all Display Post Processing blobs #XXX: Breaks boot on select devices
-export DOS_DEBLOBBER_REMOVE_FACE=false; #Set true to remove all face unlock blobs
+export DOS_DEBLOBBER_REMOVE_FACE=true; #Set true to remove all face unlock blobs
 export DOS_DEBLOBBER_REMOVE_FP=false; #Set true to remove all fingerprint reader blobs
 export DOS_DEBLOBBER_REMOVE_EUICC=true; #Set true to remove all Google eUICC blobs
-export DOS_DEBLOBBER_REMOVE_EUICC_FULL=false; #Set true to remove all hardware eUICC blobs
+export DOS_DEBLOBBER_REMOVE_EUICC_FULL=true; #Set true to remove all hardware eUICC blobs
 export DOS_DEBLOBBER_REMOVE_IMS=false; #Set true to remove all IMS blobs #XXX: Carriers are phasing out 3G, making IMS mandatory for calls
 export DOS_DEBLOBBER_REMOVE_IPA=false; #Set true to remove all IPA blobs
-export DOS_DEBLOBBER_REMOVE_IR=false; #Set true to remove all IR blobs
+export DOS_DEBLOBBER_REMOVE_IR=true; #Set true to remove all IR blobs
 export DOS_DEBLOBBER_REMOVE_RCS=true; #Set true to remove all RCS blobs
 
 #Features
@@ -59,18 +58,18 @@ export DOS_SENSORS_PERM=false; #Set true to provide a per-app sensors permission
 export DOS_USE_KSM=false; #Set true to use KSM for increased memory efficiency at the cost of easier side-channel attacks and increased CPU usage #XXX: testing only
 
 #Servers
-export DOS_DEFAULT_DNS_PRESET="Quad9"; #Sets default DNS. Options: See changeDefaultDNS() in Scripts/Common/Functions.sh
-export DOS_GPS_NTP_SERVER="2.android.pool.ntp.org"; #Options: Any NTP pool
-export DOS_GPS_SUPL_HOST="supl.google.com"; #Options: Any *valid* SUPL server
+export DOS_DEFAULT_DNS_PRESET="Cloudflare"; #Sets default DNS. Options: See changeDefaultDNS() in Scripts/Common/Functions.sh
+export DOS_GPS_NTP_SERVER="pool.ntp.org"; #Options: Any NTP pool
+export DOS_GPS_SUPL_HOST="supl.grapheneos.org"; #Options: Any *valid* SUPL server
 
 #Release Processing
-export DOS_MALWARE_SCAN_BEFORE_SIGN=false; #Scan device files for malware before signing
-export DOS_GENERATE_DELTAS=false; #Creates deltas from existing target_files in $DOS_BUILDS
+export DOS_MALWARE_SCAN_BEFORE_SIGN=true; #Scan device files for malware before signing
+export DOS_GENERATE_DELTAS=true; #Creates deltas from existing target_files in $DOS_BUILDS
 export DOS_AUTO_ARCHIVE_BUILDS=true; #Copies files to $DOS_BUILDS after signing
 export DOS_REMOVE_AFTER=true; #Removes device OUT directory after complete to reclaim space. Requires AUTO_ARCHIVE_BUILDS=true
-export DOS_REMOVE_AFTER_FULL=false; #Removes the entire OUT directory
+export DOS_REMOVE_AFTER_FULL=true; #Removes the entire OUT directory
 export DOS_GPG_SIGNING=true;
-export DOS_GPG_SIGNING_KEY="B8744D67F9F1E14E145DFD8E7F627E920F316994";
+export DOS_GPG_SIGNING_KEY="7BC4B0C141288FDEC8FE21B8CAEE4C2673DB7DE8";
 
 #Branding
 export DOS_BRANDING_NAME="DivestOS";

@@ -30,7 +30,7 @@ if [[ -d "$DOS_SIGNING_KEYS" ]]; then
 	cd "$DOS_SIGNING_KEYS/NEW";
 	mkdir $1; cd $1;
 
-	desc="/O=Divested Computing Group/CN=DivestOS for $1/emailAddress=support@divestos.org";
+	desc="/O=Luke Andrew Simmons/CN=Luke Andrew Simmons for $1/emailAddress=luke5083@live.com";
 
 	sed -i '/blank for none/,+1 d' "$DOS_BUILD_BASE"/development/tools/make_key;
 
